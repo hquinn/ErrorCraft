@@ -16,7 +16,7 @@ public record NotFoundError<TKey> : INotFoundError
     public ErrorSeverity Severity { get; init; }
 
     /// <inheritdoc />
-    public IReadOnlyDictionary<string, object>? Metadata { get; init; }
+    public IReadOnlyDictionary<string, object?>? Metadata { get; init; }
 
     /// <inheritdoc />
     public required string ResourceType { get; init; }

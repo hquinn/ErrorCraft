@@ -15,7 +15,7 @@ public record ServiceUnavailableError : IServiceUnavailableError
     public ErrorSeverity Severity { get; init; }
 
     /// <inheritdoc />
-    public IReadOnlyDictionary<string, object>? Metadata { get; init; }
+    public IReadOnlyDictionary<string, object?>? Metadata { get; init; }
 
     /// <inheritdoc />
     public string? ServiceName { get; init; }

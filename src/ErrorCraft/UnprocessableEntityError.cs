@@ -15,5 +15,5 @@ public record UnprocessableEntityError : IUnprocessableEntityError
     public ErrorSeverity Severity { get; init; }
 
     /// <inheritdoc />
-    public IReadOnlyDictionary<string, object>? Metadata { get; init; }
+    public IReadOnlyDictionary<string, object?>? Metadata { get; init; }
 }

@@ -15,7 +15,7 @@ public record Error : IError
     public ErrorSeverity Severity { get; init; }
 
     /// <inheritdoc />
-    public IReadOnlyDictionary<string, object>? Metadata { get; init; }
+    public IReadOnlyDictionary<string, object?>? Metadata { get; init; }
 
     /// <summary>
     /// Creates a new <see cref="BadRequestError"/> instance.

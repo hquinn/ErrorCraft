@@ -25,5 +25,5 @@ public interface IError
     /// <summary>
     /// Optional metadata associated with the error.
     /// </summary>
-    IReadOnlyDictionary<string, object>? Metadata { get; }
+    IReadOnlyDictionary<string, object?>? Metadata { get; }
 }
