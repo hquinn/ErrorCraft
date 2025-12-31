@@ -16,17 +16,22 @@ public static class ErrorExtensions
     /// Only set this to true in development environments.</param>
     /// <param name="error">The error to convert.</param>
     /// <returns>A <see cref="ProblemDetails"/> representation of the error.</returns>
-    public static ProblemDetails ToProblemDetails<TError>(
-        this TError error,
+    public static ProblemDetails ToProblemDetails(
+        this IError error,
         HttpContext context,
-        bool includeDetails = false) where TError : IError, IProblemDetailsSource
+        bool includeDetails = false)
     {
+        var problemDetailsSource = error as IProblemDetailsSource;
+        var status = problemDetailsSource?.Status ??  StatusCodes.Status500InternalServerError;
+        var title = problemDetailsSource?.Title ?? "Internal Server Error";
+        var type = problemDetailsSource?.Type ?? "https://tools.ietf.org/html/rfc9110#section-15.6.1";
+        
         var problemDetails = new ProblemDetails
         {
-            Status = error.Status,
-            Title = error.Title,
+            Status = status,
+            Title = title,
             Detail = error.Message,
-            Type = error.Type,
+            Type = type,
             Instance = context.Request.Path,
             Extensions = new Dictionary<string, object?>
             {
