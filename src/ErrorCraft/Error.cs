@@ -46,6 +46,48 @@ public record Error : IError
     };
 
     /// <summary>
+    /// Creates a new <see cref="ValidationErrors"/> instance.
+    /// </summary>
+    public static ValidationErrors Validation(
+        string code,
+        string message,
+        params IValidationError[] errors) => new()
+    {
+        Code = code,
+        Message = message,
+        Errors = errors,
+        Severity = ErrorSeverity.Error
+    };
+
+    /// <summary>
+    /// Creates a new <see cref="ValidationErrors"/> instance.
+    /// </summary>
+    public static ValidationErrors Validation(
+        string code,
+        string message,
+        IReadOnlyList<IValidationError> errors) => new()
+    {
+        Code = code,
+        Message = message,
+        Errors = errors,
+        Severity = ErrorSeverity.Error
+    };
+
+    /// <summary>
+    /// Creates a new <see cref="ValidationErrors"/> instance.
+    /// </summary>
+    public static ValidationErrors Validation(
+        string code,
+        string message,
+        IEnumerable<IValidationError> errors) => new()
+    {
+        Code = code,
+        Message = message,
+        Errors = errors.ToArray(),
+        Severity = ErrorSeverity.Error
+    };
+
+    /// <summary>
     /// Creates a new <see cref="NotFoundError{TKey}"/> instance.
     /// </summary>
     public static NotFoundError<TKey> NotFound<TKey>(

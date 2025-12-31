@@ -101,6 +101,18 @@ public static class ErrorExtensions
                 extensions["targetName"] = validationError.TargetName;
                 extensions["attemptedValue"] = validationError.AttemptedValue;
                 break;
+
+            case IValidationErrors validationErrors:
+                extensions["errors"] = validationErrors.Errors.Select(e => new
+                {
+                    e.Code,
+                    e.Message,
+                    e.TargetPath,
+                    e.TargetName,
+                    e.AttemptedValue,
+                    Severity = e.Severity.ToString()
+                }).ToArray();
+                break;
             
             case INotFoundError notFoundError:
                 extensions["resourceType"] = notFoundError.ResourceType;
