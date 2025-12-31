@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net10.0;net9.0;net8.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <PackageId>ErrorCraft</PackageId>
+        <Version>0.10.0</Version>
+        <Authors>Hayden Quinn</Authors>
+        <Company>hquinn</Company>
+        <Copyright>Copyright © 2025 Hayden Quinn</Copyright>
+        <Description>A simple library which defines error primitives.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/hquinn/ErrorCraft</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/hquinn/ErrorCraft</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <!-- SourceLink settings for debugging into source -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+</Project>
