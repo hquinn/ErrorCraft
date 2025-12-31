@@ -16,8 +16,8 @@ public static class ErrorFluentExtensions
     public static T WithMetadata<T>(this T error, string key, object value) where T : IError
     {
         var newMetadata = error.Metadata != null
-            ? new Dictionary<string, object>(error.Metadata)
-            : new Dictionary<string, object>();
+            ? new Dictionary<string, object?>(error.Metadata)
+            : new Dictionary<string, object?>();
 
         newMetadata[key] = value;
 
@@ -62,7 +62,7 @@ public static class ErrorFluentExtensions
         };
     }
 
-    private static T HandleRecords<T>(T error, Dictionary<string, object>? metadata, ErrorSeverity? severity) where T : IError
+    private static T HandleRecords<T>(T error, Dictionary<string, object?>? metadata, ErrorSeverity? severity) where T : IError
     {
         // Handle generic records like ValidationError<T> and NotFoundError<T> using reflection
         // to avoid invariance issues with switch expressions and to keep the API clean.
